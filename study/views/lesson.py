@@ -1,5 +1,7 @@
 # для урока через дженерики
 from rest_framework.generics import RetrieveAPIView, DestroyAPIView, ListAPIView, UpdateAPIView, CreateAPIView
+from rest_framework.permissions import IsAuthenticated
+from study.permissions import IsModerator, IsOwner
 
 from study.seriallizers.lesson import LessonBaseSerializer, Lesson
 
@@ -10,20 +12,20 @@ class LessonBaseAPIView:
 
 
 class LessonDetailView(LessonBaseAPIView, RetrieveAPIView):
-    pass
+    permission_classes = [IsAuthenticated, IsModerator|IsOwner]
 
 
 class LessonDeleteView(LessonBaseAPIView, DestroyAPIView):
-    pass
+    permission_classes = [IsAuthenticated, IsOwner]
 
 
 class LessonListView(LessonBaseAPIView, ListAPIView):
-    pass
+    permission_classes = [IsAuthenticated]
 
 
 class LessonUpdateView(LessonBaseAPIView, UpdateAPIView):
-    pass
+    permission_classes = [IsAuthenticated, IsModerator|IsOwner]
 
 
 class LessonCreateView(LessonBaseAPIView, CreateAPIView):
-    pass
+    permission_classes = [IsAuthenticated]
