@@ -2,9 +2,8 @@ asgiref==3.6.0
 attrs==22.2.0
 build==0.10.0
 Django==4.2.1
-django-filter==1.1.0
+django-filter==23.2
 djangorestframework==3.14.0
-djangorestframework-filters==0.11.1
 djangorestframework-simplejwt==5.2.2
 iniconfig==2.0.0
 packaging==23.0
