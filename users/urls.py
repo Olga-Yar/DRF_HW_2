@@ -10,7 +10,7 @@ from users.views import RegisterView, ProfileView, ConfirmView, generate_new_pas
 app_name = UsersConfig.name
 
 urlpatterns = [
-    path('token/', TokenObtainPairView.as_view()),
-    path('token/refresh', TokenObtainPairView.as_view()),
+    path('user/token/', TokenObtainPairView.as_view()),
+    path('user/token/refresh', TokenObtainPairView.as_view()),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
