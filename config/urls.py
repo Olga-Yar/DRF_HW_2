@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('study.urls', namespace='main')),  # подключение путей из приложения main
     path('users/', include('users.urls', namespace='users')),  # подключение путей из приложения users
+    path('user/', include('users.urls', namespace='user')),  # подключение путей из приложения users
 ]

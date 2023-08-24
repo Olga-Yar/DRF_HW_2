@@ -13,6 +13,10 @@ urlpatterns = [
     path('lesson/delete/<int:pk>/', LessonDeleteView.as_view(), name='lesson_delete'),
     path('lesson/update/<int:pk>/', LessonUpdateView.as_view(), name='lesson_update'),
     path('lesson/create/', LessonCreateView.as_view(), name='lesson_create'),
+
+    path('course/', CourseViewSet.as_view({'get': 'list'})),
+    path('course/<int:pk>/', CourseViewSet.as_view({'put': 'update'})),
+    path('course/create/', CourseViewSet.as_view({'put': 'create'})),
 ]
 
 router = routers.SimpleRouter()

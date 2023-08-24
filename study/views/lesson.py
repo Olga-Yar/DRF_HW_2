@@ -1,6 +1,8 @@
 # для урока через дженерики
 from rest_framework.generics import RetrieveAPIView, DestroyAPIView, ListAPIView, UpdateAPIView, CreateAPIView
 from rest_framework.permissions import IsAuthenticated
+
+from study.paginators import LessonPaginator
 from study.permissions import IsModerator, IsOwner
 
 from study.seriallizers.lesson import LessonBaseSerializer, Lesson
@@ -21,6 +23,7 @@ class LessonDeleteView(LessonBaseAPIView, DestroyAPIView):
 
 class LessonListView(LessonBaseAPIView, ListAPIView):
     permission_classes = [IsAuthenticated]
+    pagination_class = LessonPaginator
 
 
 class LessonUpdateView(LessonBaseAPIView, UpdateAPIView):
